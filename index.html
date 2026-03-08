@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="hero_title">HEX - Global Blockchain Certificate of Deposit</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: #2c2c4a;
+            --text-light: #e0e0e0;
+            --text-accent: #ff416c;
+            --text-secondary: #a0a0b0;
+            --gradient-start: #ff416c;
+            --gradient-end: #ff4b2b;
+            --border-color: #4a4a6e;
+            --button-bg: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            --button-hover-bg: linear-gradient(90deg, var(--gradient-end), var(--gradient-start));
+            --font-primary: 'Inter', sans-serif;
+            --font-heading: 'Orbitron', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--text-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gradient-end);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+
+        section {
+            padding: 6rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-dark);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient-start);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+            margin-left: 1rem;
+        }
+
+        .lang-switcher select {
+            background-color: var(--bg-card);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            appearance: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .lang-switcher select:hover {
+            border-color: var(--text-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: radial-gradient(circle at top left, rgba(255, 65, 108, 0.1), transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(255, 75, 43, 0.1), transparent 50%),
+                        var(--bg-dark);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 1rem 4rem;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--button-bg);
+            color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--button-hover-bg);
+            box-shadow: 0 5px 20px rgba(255, 75, 43, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-accent);
+            border: 2px solid var(--text-accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-accent);
+            color: var(--bg-dark);
+            border-color: var(--text-accent);
+            transform: translateY(-3px);
+        }
+
+        /* General Section Styling */
+        section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-start);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section - Core Features */
+        #about {
+            background-color: var(--bg-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            color: var(--text-accent);
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* How it Works */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .step-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-card .step-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--text-accent);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .step-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        #stats {
+            background-color: var(--bg-dark);
+            padding: 6rem 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item .value {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-accent);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-item .label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .audit-logos {
+            margin-top: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .audit-logos img {
+            height: 50px; /* Placeholder for actual logos */
+            filter: grayscale(100%) brightness(150%);
+            opacity: 0.7;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .audit-logos img:hover {
+            filter: grayscale(0%) brightness(100%);
+            opacity: 1;
+        }
+
+        .audit-logos span {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Tokenomics Section */
+        #tokenomics {
+            background-color: var(--bg-dark);
+            text-align: left;
+        }
+
+        #tokenomics .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #tokenomics p {
+            max-width: 800px;
+            margin: 1rem auto;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* Roadmap Section */
+        #roadmap {
+            background-color: var(--bg-dark);
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .roadmap-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .roadmap-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--bg-card);
+            border: 4px solid var(--text-accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .roadmap-item-left {
+            left: 0;
+        }
+
+        .roadmap-item-right {
+            left: 50%;
+        }
+
+        .roadmap-item-right::after {
+            left: -16px;
+        }
+
+        .roadmap-content {
+            padding: 20px 30px;
+            background-color: var(--bg-card);
+            position: relative;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .roadmap-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .roadmap-content h3 {
+            color: var(--text-accent);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        #faq {
+            background-color: var(--bg-dark);
+            text-align: left;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #3a3a5a;
+        }
+
+        .faq-question .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Adjust based on content */
+            padding: 0.5rem 1.5rem 1.5rem;
+        }
+
+        .faq-item.active .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Community Section */
+        #community {
+            background-color: var(--bg-dark);
+            padding-bottom: 8rem;
+        }
+
+        #community p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+            color: var(--text-light);
+            font-size: 1.8rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover {
+            background-color: var(--text-accent);
+            transform: translateY(-5px);
+        }
+
+        .social-link svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-card);
+            color: var(--text-secondary);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+            #hero h1 {
+                font-size: 3rem;
+            }
+            #hero p {
+                font-size: 1.2rem;
+            }
+            section h2 {
+                font-size: 2.5rem;
+            }
+            .roadmap-timeline::before {
+                left: 18px;
+            }
+            .roadmap-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            .roadmap-item-left::after,
+            .roadmap-item-right::after {
+                left: 11px;
+            }
+            .roadmap-item-right {
+                left: 0%;
+            }
+            .roadmap-content {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide nav links on small screens, could add a hamburger menu */
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            section {
+                padding: 4rem 1rem;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .features-grid, .how-it-works-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-card, .step-card, .stat-item {
+                text-align: center;
+            }
+            .feature-card .icon {
+                margin: 0 auto 1rem;
+            }
+            .faq-question {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            .faq-item.active .faq-answer {
+                padding: 0.5rem 1rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero h1 {
+                font-size: 2rem;
+            }
+            #hero p {
+                font-size: 0.9rem;
+            }
+            .logo img {
+                height: 30px;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+            .lang-switcher select {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            .social-link svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="HEX Logo">
+                HEX
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#tokenomics" data-i18n="nav_tokenomics">Tokenomics</a></li>
+                <li><a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a></li>
+                <li><a href="#community" data-i18n="nav_community">Community</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="zh-TW">繁體中文</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1 data-i18n="hero_title">HEX: The World's First Blockchain Certificate of Deposit (CD)</h1>
+            <p data-i18n="hero_subtitle">Say goodbye to traditional low-interest accounts. Lock your assets with a decentralized Proof-of-Time mechanism and earn up to 38% APY.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" data-i18n="hero_stake_btn">Stake Now</a>
+                <a href="#" class="btn btn-secondary" data-i18n="hero_whitepaper_btn">View Whitepaper</a>
+                <a href="#" class="btn btn-secondary" data-i18n="hero_data_btn">View Live Data</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 data-i18n="features_title">Core Value Proposition</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">💰</div>
+                    <h3 data-i18n="feature1_title">Inflation to Holders</h3>
+                    <p data-i18n="feature1_desc">Unlike Bitcoin, which rewards new coins to miners, HEX directly rewards annual inflation to long-term stakers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⏳</div>
+                    <h3 data-i18n="feature2_title">Proof-of-Time (T-Shares)</h3>
+                    <p data-i18n="feature2_desc">The longer and larger your stake, the more T-Shares you earn, leading to higher returns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🌐</div>
+                    <h3 data-i18n="feature3_title">Decentralized Finance</h3>
+                    <p data-i18n="feature3_desc">No admin keys, no centralized team control. The contract is law, audited by multiple reputable firms.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚖️</div>
+                    <h3 data-i18n="feature4_title">Game Theory Incentives</h3>
+                    <p data-i18n="feature4_desc">Early End Stake incurs penalties, which are distributed to honest stakers.</p>
+                </div>
+            </div>
+
+            <h2 data-i18n="howitworks_title" style="margin-top: 6rem;">How it Works</h2>
+            <div class="how-it-works-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 data-i18n="step1_title">Buy/Swap HEX</h3>
+                    <p data-i18n="step1_desc">Acquire your HEX on Ethereum or PulseChain.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 data-i18n="step2_title">Initiate Stake</h3>
+                    <p data-i18n="step2_desc">Choose your lock-up period (1 day to 5555 days).</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 data-i18n="step3_title">Mint T-Shares</h3>
+                    <p data-i18n="step3_desc">Upon staking, your HEX is burned and converted into 'shares'.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 data-i18n="step4_title">Withdraw at Maturity</h3>
+                    <p data-i18n="step4_desc">Redeem your shares to receive your principal plus all accumulated interest.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats">
+            <h2 data-i18n="stats_title">Social Proof & Live Data</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="value">38%</div>
+                    <div class="label" data-i18n="current_apy">Current APY</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value">$1.2B+</div>
+                    <div class="label" data-i18n="tvl">Total Value Locked</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value">6.5 <span data-i18n="years">Years</span></div>
+                    <div class="label" data-i18n="avg_stake_duration">Average Stake Duration</div>
+                </div>
+            </div>
+            <h3 style="margin-top: 4rem;" data-i18n="audit_reports">Audit Reports</h3>
+            <div class="audit-logos">
+                <span>Chainsecurity</span>
+                <span>CoinFabrik</span>
+                <!-- Placeholder for actual logos if available -->
+            </div>
+        </section>
+
+        <section id="tokenomics">
+            <h2 data-i18n="tokenomics_title">Tokenomics & Yield Logic</h2>
+            <p data-i18n="tokenomics_desc1">HEX generates yield through a smart contract with an annual inflation rate of approximately 3.69%.</p>
+            <p data-i18n="tokenomics_desc2">Since not all holders stake, all inflation rewards are distributed exclusively to stakers, resulting in a significantly high Annual Percentage Yield (APY).</p>
+        </section>
+
+        <section id="roadmap">
+            <h2 data-i18n="roadmap_title">Roadmap</h2>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item roadmap-item-left">
+                    <div class="roadmap-content">
+                        <h3 data-i18n="roadmap_phase1_title">Phase 1: Foundation & Launch</h3>
+                        <p data-i18n="roadmap_phase1_desc">Smart contract deployment, initial liquidity provision, community building.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item roadmap-item-right">
+                    <div class="roadmap-content">
+                        <h3 data-i18n="roadmap_phase2_title">Phase 2: Ecosystem Expansion</h3>
+                        <p data-i18n="roadmap_phase2_desc">Integrations with DeFi platforms, partnerships, enhanced analytics tools.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item roadmap-item-left">
+                    <div class="roadmap-content">
+                        <h3 data-i18n="roadmap_phase3_title">Phase 3: Global Adoption</h3>
+                        <p data-i18n="roadmap_phase3_desc">Marketing campaigns, educational initiatives, broader exchange listings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq1_q">How does HEX generate yield?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq1_a">HEX generates yield through a smart contract with an annual inflation rate of approximately 3.69%. Since not all holders stake, all inflation rewards are distributed exclusively to stakers, resulting in a significantly high Annual Percentage Yield (APY).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq2_q">What happens if I withdraw my funds early?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq2_a">HEX rewards honest behavior. If you exit your stake before the agreed-upon duration, the contract will deduct a portion of your principal and all interest as a penalty. These penalties are then distributed to honest stakers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community">
+            <h2 data-i18n="community_title">Join Our Community</h2>
+            <p data-i18n="community_cta">Join the ranks of 500,000+ holders!</p>
+            <div class="social-links">
+                <a href="https://t.me/hex" target="_blank" class="social-link" aria-label="Telegram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.52-1.4.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.39-.89.03-.25.38-.51 1.07-.78 4.2-1.82 7-3.03 8.4-3.61 4-.1.83-.15 1.12-.15.06 0 .21.01.3.09.09.08.12.19.13.26.02.08.03.23.02.29z"/></svg>
+                </a>
+                <a href="https://twitter.com/hex" target="_blank" class="social-link" aria-label="Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" target="_blank" class="social-link" aria-label="Discord">
+                    <!-- Placeholder for Discord icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 5.7c-.7-.6-1.5-1.1-2.4-1.4-.2-.1-.4-.1-.6-.1-.1 0-.2 0-.3.1-.7.2-1.4.5-2.1.9-.9.5-1.7 1.1-2.4 1.8-.2.2-.4.3-.6.3-.2 0-.4-.1-.6-.3-.7-.7-1.5-1.3-2.4-1.8-.7-.4-1.4-.7-2.1-.9-.1 0-.2-.1-.3-.1-.2 0-.4 0-.6.1-.9.3-1.7.8-2.4 1.4-.7.6-1.2 1.4-1.6 2.2-.4.8-.6 1.7-.7 2.6-.1.9-.1 1.8 0 2.7.1.9.3 1.7.7 2.6.4.8.9 1.6 1.6 2.2.7.6 1.5 1.1 2.4 1.4.2.1.4.1.6.1.1 0 .2 0 .3-.1.7-.2 1.4-.5 2.1-.9.9-.5 1.7-1.1 2.4-1.8.2-.2.4-.3.6-.3.2 0 .4.1.6.3.7.7 1.5 1.3 2.4 1.8.7.4 1.4.7 2.1.9.1 0 .2.1.3.1.2 0 .4 0 .6-.1.9-.3 1.7-.8 2.4-1.4.7-.6 1.2-1.4 1.6-2.2.4-.8.6-1.7.7-2.6.1-.9.1-1.8 0-2.7-.1-.9-.3-1.7-.7-2.6-.4-.8-.9-1.6-1.6-2.2zM8.5 15c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm7 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/></svg>
+                </a>
+                <a href="#" target="_blank" class="social-link" aria-label="YouTube">
+                    <!-- Placeholder for YouTube icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.5-3.5L10 8V15zm11.5-7.3c-.2-.8-.8-1.4-1.6-1.6C18.4 6 12 6 12 6s-6.4 0-7.9.1c-.8.2-1.4.8-1.6 1.6C2 9.1 2 12 2 12s0 2.9.1 4.3c.2.8.8 1.4 1.6 1.6 1.5.1 7.9.1 7.9.1s6.4 0 7.9-.1c.8-.2 1.4-.8 1.6-1.6.1-1.4.1-4.3.1-4.3s0-2.9-.1-4.3z"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_disclaimer">Cryptocurrencies carry risks. Past performance is not indicative of future results. Please conduct thorough research.</p>
+        <p data-i18n="footer_copyright">© 2023 HEX. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Language Switcher Logic
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_tokenomics: "Tokenomics",
+                nav_roadmap: "Roadmap",
+                nav_community: "Community",
+                hero_title: "HEX: The World's First Blockchain Certificate of Deposit (CD)",
+                hero_subtitle: "Say goodbye to traditional low-interest accounts. Lock your assets with a decentralized Proof-of-Time mechanism and earn up to 38% APY.",
+                hero_stake_btn: "Stake Now",
+                hero_whitepaper_btn: "View Whitepaper",
+                hero_data_btn: "View Live Data",
+                features_title: "Core Value Proposition",
+                feature1_title: "Inflation to Holders",
+                feature1_desc: "Unlike Bitcoin, which rewards new coins to miners, HEX directly rewards annual inflation to long-term stakers.",
+                feature2_title: "Proof-of-Time (T-Shares)",
+                feature2_desc: "The longer and larger your stake, the more T-Shares you earn, leading to higher returns.",
+                feature3_title: "Decentralized Finance",
+                feature3_desc: "No admin keys, no centralized team control. The contract is law, audited by multiple reputable firms.",
+                feature4_title: "Game Theory Incentives",
+                feature4_desc: "Early End Stake incurs penalties, which are distributed to honest stakers.",
+                howitworks_title: "How it Works",
+                step1_title: "Buy/Swap HEX",
+                step1_desc: "Acquire your HEX on Ethereum or PulseChain.",
+                step2_title: "Initiate Stake",
+                step2_desc: "Choose your lock-up period (1 day to 5555 days).",
+                step3_title: "Mint T-Shares",
+                step3_desc: "Upon staking, your HEX is burned and converted into 'shares'.",
+                step4_title: "Withdraw at Maturity",
+                step4_desc: "Redeem your shares to receive your principal plus all accumulated interest.",
+                stats_title: "Social Proof & Live Data",
+                current_apy: "Current APY",
+                tvl: "Total Value Locked",
+                avg_stake_duration: "Average Stake Duration",
+                years: "Years",
+                audit_reports: "Audit Reports",
+                tokenomics_title: "Tokenomics & Yield Logic",
+                tokenomics_desc1: "HEX generates yield through a smart contract with an annual inflation rate of approximately 3.69%.",
+                tokenomics_desc2: "Since not all holders stake, all inflation rewards are distributed exclusively to stakers, resulting in a significantly high Annual Percentage Yield (APY).",
+                roadmap_title: "Roadmap",
+                roadmap_phase1_title: "Phase 1: Foundation & Launch",
+                roadmap_phase1_desc: "Smart contract deployment, initial liquidity provision, community building.",
+                roadmap_phase2_title: "Phase 2: Ecosystem Expansion",
+                roadmap_phase2_desc: "Integrations with DeFi platforms, partnerships, enhanced analytics tools.",
+                roadmap_phase3_title: "Phase 3: Global Adoption",
+                roadmap_phase3_desc: "Marketing campaigns, educational initiatives, broader exchange listings.",
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "How does HEX generate yield?",
+                faq1_a: "HEX generates yield through a smart contract with an annual inflation rate of approximately 3.69%. Since not all holders stake, all inflation rewards are distributed exclusively to stakers, resulting in a significantly high Annual Percentage Yield (APY).",
+                faq2_q: "What happens if I withdraw my funds early?",
+                faq2_a: "HEX rewards honest behavior. If you exit your stake before the agreed-upon duration, the contract will deduct a portion of your principal and all interest as a penalty. These penalties are then distributed to honest stakers.",
+                community_title: "Join Our Community",
+                community_cta: "Join the ranks of 500,000+ holders!",
+                footer_disclaimer: "Cryptocurrencies carry risks. Past performance is not indicative of future results. Please conduct thorough research.",
+                footer_copyright: "© 2023 HEX. All rights reserved."
+            },
+            "zh-TW": {
+                nav_home: "首頁",
+                nav_about: "關於",
+                nav_tokenomics: "代幣經濟",
+                nav_roadmap: "路線圖",
+                nav_community: "社群",
+                hero_title: "HEX：全球首個區塊鏈定期存款 (CD)",
+                hero_subtitle: "告別傳統的低息帳戶。透過去中心化的時間證明機制，鎖定你的資產，獲取高達 38% 的年化收益（APY）。",
+                hero_stake_btn: "立即質押",
+                hero_whitepaper_btn: "查看白皮書",
+                hero_data_btn: "查看實時數據",
+                features_title: "核心價值主張",
+                feature1_title: "通脹歸於持有人",
+                feature1_desc: "不同於比特幣將新幣給礦工，HEX 將每年產生的通脹直接獎勵給長期質押者。",
+                feature2_title: "時間證明 (T-Shares)",
+                feature2_desc: "質押時間越長、金額越大，獲得的 T-Shares 越多，收益也越高。",
+                feature3_title: "去中心化金融",
+                feature3_desc: "無管理員權限，無中心化團隊控制，合約即法律，已通過多家權威審計。",
+                feature4_title: "博弈論激勵",
+                feature4_desc: "提前退出質押（Early End Stake）會有罰款，這些罰款會分配給誠實的質押者。",
+                howitworks_title: "收益邏輯圖解",
+                step1_title: "購買/兌換 HEX",
+                step1_desc: "在以太坊 (Ethereum) 或 PulseChain 上獲取你的 HEX。",
+                step2_title: "發起質押",
+                step2_desc: "選擇鎖定期限（1 天至 5555 天）。",
+                step3_title: "鑄造 T-Shares",
+                step3_desc: "質押後，你的 HEX 被銷毀並轉化為「股份」。",
+                step4_title: "到期提取",
+                step4_desc: "贖回股份，獲得本金加上這段時間內累積的所有利息。",
+                stats_title: "社交證明與數據看板",
+                current_apy: "當前 APY",
+                tvl: "已鎖定資產價值 (TVL)",
+                avg_stake_duration: "平均質押時長",
+                years: "年",
+                audit_reports: "審計報告",
+                tokenomics_title: "代幣經濟與收益邏輯",
+                tokenomics_desc1: "HEX 透過智能合約設置了每年約 3.69% 的通脹率。",
+                tokenomics_desc2: "由於並非所有持有者都進行質押，所有的通脹獎勵都會分配給那部分質押者，從而產生極高的年化收益。",
+                roadmap_title: "路線圖",
+                roadmap_phase1_title: "階段 1：基礎與啟動",
+                roadmap_phase1_desc: "智能合約部署、初始流動性提供、社群建設。",
+                roadmap_phase2_title: "階段 2：生態系統擴展",
+                roadmap_phase2_desc: "與 DeFi 平台整合、合作夥伴關係、增強分析工具。",
+                roadmap_phase3_title: "階段 3：全球採用",
+                roadmap_phase3_desc: "市場推廣活動、教育倡議、更廣泛的交易所上市。",
+                faq_title: "常見問題",
+                faq1_q: "HEX 是如何產生收益的？",
+                faq1_a: "HEX 透過智能合約設置了每年約 3.69% 的通脹率。由於並非所有持有者都進行質押，所有的通脹獎勵都會分配給那部分質押者，從而產生極高的年化收益。",
+                faq2_q: "如果我提前取出資金會怎樣？",
+                faq2_a: "HEX 獎勵誠實的行為。如果你未完成約定的質押期限提前退出，合約將扣除部分本金和全部利息作為罰款。這些罰款會分配給誠實的質押者。",
+                community_title: "加入我們的社群",
+                community_cta: "加入 500,000+ 持有者的行列！",
+                footer_disclaimer: "加密貨幣具有風險，過往表現不代表未來收益，請務必進行充分研究。",
+                footer_copyright: "© 2023 HEX. 保留所有權利。"
+            }
+        };
+
+        const languageSelect = document.getElementById('language-select');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            localStorage.setItem('lang', lang);
+            languageSelect.value = lang;
+        }
+
+        languageSelect.addEventListener('change', (event) => {
+            setLanguage(event.target.value);
+        });
+
+        // Initialize language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
